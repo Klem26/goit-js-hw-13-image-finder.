@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,700');
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.search-form {
+  border: solid 5px #2766a5;
+  display: inline-block;
+  position: relative;
+  border-radius: 50px;
+  margin-bottom: 50px;
+  input[type='text'] {
+    font-family: Raleway, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    padding: 5px 40px 5px 10px;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 50px;
+    transition: width 800ms cubic-bezier(0.5, -0.5, 0.5, 0.5) 600ms;
+    &:focus {
+      outline: none;
+    }
+    &:focus,
+    &:not(:placeholder-shown) {
+      width: 300px;
+      transition: width 800ms cubic-bezier(0.5, -0.5, 0.5, 1.5);
+      + span {
+        bottom: 13px;
+        right: 10px;
+        transition: bottom 300ms ease-out 800ms, right 300ms ease-out 800ms;
+      }
+      + span:after {
+        top: 0;
+        right: 10px;
+        opacity: 1;
+        transition: top 300ms ease-out 1100ms, right 300ms ease-out 1100ms,
+          opacity 300ms ease 1100ms;
+      }
+    }
+  }
+  span {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -13px;
+    right: -15px;
+    transition: bottom 300ms ease-out 300ms, right 300ms ease-out 300ms;
+    &:before,
+    &:after {
+      content: '';
+      height: 25px;
+      border-left: solid 5px #2766a5;
+      position: absolute;
+      transform: rotate(-45deg);
+    }
+    &:after {
+      transform: rotate(45deg);
+      opacity: 0;
+      top: -20px;
+      right: -10px;
+      transition: top 300ms ease-out, right 300ms ease-out,
+        opacity 300ms ease-out;
+    }
+  }
+}
+@import url('https://fonts.googleapis.com/css?family=Rubik:700&display=swap');
+
+$bg: #fff;
+$text: #382b22;
+$light-pink: #fff0f0;
+$pink: #e2e1f5;
+$dark-pink: #f9c4d2;
+$pink-border: #b18597;
+$pink-shadow: #ffe3e2;
+
+* {
+  box-sizing: border-box;
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  // display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  min-height: 100vh;
+  background: $bg;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  margin-left: 20px;
+  margin-bottom: 30px;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  &.learn-more {
+    font-weight: 600;
+    color: $text;
+    text-transform: uppercase;
+    padding: 1.25em 2em;
+    background: $light-pink;
+    border: 2px solid $pink-border;
+    border-radius: 0.75em;
+    transform-style: preserve-3d;
+    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+      background 150ms cubic-bezier(0, 0, 0.58, 1);
+    &::before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $dark-pink;
+      border-radius: inherit;
+      box-shadow: 0 0 0 2px $pink-border, 0 0.625em 0 0 $pink-shadow;
+      transform: translate3d(0, 0.75em, -1em);
+      transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+        box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+    }
+    &:hover {
+      background: $pink;
+      transform: translate(0, 0.25em);
+      &::before {
+        box-shadow: 0 0 0 2px $pink-border, 0 0.5em 0 0 $pink-shadow;
+        transform: translate3d(0, 0.5em, -1em);
+      }
+    }
+    &:active {
+      background: $pink;
+      transform: translate(0em, 0.75em);
+      &::before {
+        box-shadow: 0 0 0 2px $pink-border, 0 0 $pink-shadow;
+        transform: translate3d(0, 0, -1em);
+      }
+    }
+  }
+}

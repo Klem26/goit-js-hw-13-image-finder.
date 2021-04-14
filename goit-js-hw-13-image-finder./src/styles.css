@@ -1,0 +1,120 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  background-color: #a0d1d3;
+}
+
+.gallery {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  max-width: calc(100% - 64px);
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: 24px;
+}
+
+.photo-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-bottom: 8px;
+}
+.card-img {
+  height: 300px;
+  object-fit: cover;
+  max-width: 100%;
+  box-shadow: 0 0 15px 8px #d1b4b0;
+}
+.stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px;
+  flex-grow: 1;
+}
+
+.button.is-hidden {
+  display: none;
+}
+
+.logo.is-hidden {
+  display: none;
+}
+
+.logo {
+  display: block;
+  width: 365px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 15px 8px #d1b4b0;
+  fill: #5a9bdc;
+}
+
+.button > .spinner.is-hidden {
+  display: none;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* иконки  */
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 48px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  color: #e2e1f5;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.arrow-up-btn {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  bottom: 40px;
+  right: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: #0275d8;
+  font-size: 22px;
+}
