@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <title>goit-js-hw-13-image-finder</title>
+</head>
+
+<body>
+  <section class="container">
+    <div class="js-card-container">
+      <form class="search-form" id="search-form">
+        <input type="text" class="form-control" name="query" autocomplete="off" placeholder="Search images..." />
+        <span></span>
+      </form>
+    </div>
+    <article class="gallery-img">
+      <!-- Список <li> с карточками изображений -->
+    </article>
+
+    <svg class="logo">
+      <use href="./images/sprite.svg#icon-logo"></use>
+    </svg>
+
+    <button type="button" class="btn btn-primary button learn-more " data-action="load-more">
+      <span class="spinner-border spinner-border-sm spinner is-hidden" role="status" aria-hidden="true"></span>
+
+      <span class="label">Load more</span>
+    </button>
+    <a class="arrow-up-btn" id=" arrowTop" href="#"> <span
+        class="material-icons arrow-up-icon">keyboard_arrow_up</span></a>
+  </section>
+
+</body>
+
+</html>
