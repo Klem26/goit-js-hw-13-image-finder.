@@ -132,7 +132,7 @@ body {
   position: relative;
 }
 
-input[type='text'] {
+input[id='search'] {
   height: 60px;
   font-size: 55px;
   display: inline-block;
@@ -153,11 +153,11 @@ input[type='text'] {
   cursor: pointer;
 }
 
-input[type='text']:focus:hover {
+input[id='search']:focus:hover {
   border-bottom: 1px solid #bbb;
 }
 
-input[type='text']:focus {
+input[id='search']:focus {
   width: 700px;
   z-index: 1;
   border-bottom: 1px solid #bbb;
