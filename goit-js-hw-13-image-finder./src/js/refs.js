@@ -4,6 +4,7 @@ export default function refsList() {
     searchForm: document.querySelector('.search-form'),
     galleryContainer: document.querySelector('.gallery-img'),
     logoImg: document.querySelector('.logo'),
+    imageCardList: document.querySelector('.gallery'),
     // arrowUpBtn: document.querySelector('.arrow-up-btn'),
     bodyRef: document.body
     }  

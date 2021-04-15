@@ -1,37 +1,32 @@
-
-// import '@pnotify/core/dist/PNotify.css';
+import '@pnotify/core/dist/BrightTheme.css'
+import '@pnotify/core/dist/PNotify.css';
 import refsList from './refs.js';
 import ApiService from './apiService.js'
 import cardImgTpl from '../templates/card-img.hbs'
 const debounce = require('lodash.debounce');
 import LoadMoreBtn from './components/load-more-btn.js';
+import * as basicLightbox from 'basiclightbox';
+import '../styles.css';
+
+const basicLightbox1 = require('basiclightbox');
+
+
 
 const refs = refsList();
-// const { alert, notice, info, success, error } = require('@pnotify/core');
+ const { alert, notice, info, success, error } = require('@pnotify/core');
 
 
 const loadMoreBtn = new LoadMoreBtn({
     selector: '[data-action="load-more" ]',
     hidden: true,
 });
-
-
 const apiService = new ApiService();
 
 
 refs.searchForm.addEventListener('input', debounce(onSearch, 500))
 loadMoreBtn.refs.button.addEventListener('click', fetchImages);
 
-    
-
-const arrowUpBtnRef = document.querySelector('.arrow-up-btn').onclick = () => {
-    window.scrollTo(pageYOffset, 0);
-};
-arrowUpBtnRef();
-// под вопросом 
-//   window.addEventListener('scroll', function() {
-//       arrowTop.hidden = (pageYOffset < document.documentElement.clientHeight);
-//     });
+let scrollСoordinates = 0;
 
 
 function onSearch(e) {
@@ -40,14 +35,15 @@ function onSearch(e) {
    
     if (apiService.query !== '') {
        
-        loadMoreBtn.show();
+        
         apiService.resetPage();
         clearImagesContainer();
         fetchImages();
-      
-         
+        resetScroll();
+        loadMoreBtn.show();
         return;
     }
+
     clearImagesContainer();
      loadMoreBtn.hide();
 };
@@ -60,13 +56,22 @@ function fetchImages() {
     apiService
         .fetchArticles()
         .then(images => {
-        if (images.length === 0) {
-           return error;
+            if (images.length === 0) {
+             loadMoreBtn.hide();
+           return error ("Sorry, we couldn't find anything");
         }
-        removeLogo();
-            appendImagesMarkup(images);
+        removeLogoPixabay();
+        appendImagesMarkup(images);
         loadMoreBtn.enable();
         
+        })
+        .then(scrollDownContainer => {
+              window.scrollTo({
+              top: scrollСoordinates,
+              behavior: 'smooth',
+       });
+
+       scrollСoordinates = refs.bodyRef.scrollHeight - 60;
         })
         .catch(error => {
          loadMoreBtn.hide();
@@ -90,7 +95,11 @@ function clearImagesContainer() {
 };
 
 
-function removeLogo() {
+function removeLogoPixabay() {
   refs.logoImg.classList.add('is-hidden');
+}
+
+function resetScroll() {
+  scrollСoordinates = 0;
 }
 
