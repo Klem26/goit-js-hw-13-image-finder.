@@ -333,6 +333,10 @@ body {
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
+.material-icons:hover,
+.material-icons:focus {
+  color: #fcf0f0;
+}
 
 .arrow-up-btn {
   position: fixed;
