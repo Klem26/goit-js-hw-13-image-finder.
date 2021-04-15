@@ -94,11 +94,3 @@ function removeLogo() {
   refs.logoImg.classList.add('is-hidden');
 }
 
-
-const searchBox = document.querySelectorAll('.search-form input[type="text"] + span');
-
-searchBox.forEach((elm) => {
-	elm.addEventListener('click', () => {
-		elm.previousElementSibling.value = '';
-	});
-});
